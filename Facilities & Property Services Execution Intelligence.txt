@@ -1,0 +1,395 @@
+# Facilities & Property Services Execution Intelligence
+
+> **Status:** Concept / Phase‑0 Starter Repository
+> **Purpose:** Second vertical expansion after BeautyOps AI
+
+---
+
+## 1. Overview
+
+Facilities & Property Services Execution Intelligence (FPSEI) is an **AI‑powered execution intelligence platform** for organizations managing large portfolios of physical locations (retail, healthcare, hospitality, commercial real estate).
+
+The system converts fragmented, unstructured operational data (inspection notes, work orders, photos, vendor updates) into:
+
+* Standardized execution signals
+* Site‑level risk scoring
+* SLA and compliance visibility
+* Cost and risk leakage insights
+
+**Core thesis:**
+
+> Facilities failures are not random — they are detectable, predictable execution breakdowns.
+
+---
+
+## 2. Problem Statement
+
+Multi‑site operators suffer from:
+
+* Missed or incomplete inspections
+* Vendor SLA breaches
+* Inconsistent documentation
+* Reactive maintenance cycles
+* Poor visibility into site‑level risk
+
+Despite significant spend on:
+
+* CMMS tools
+* Vendors and contractors
+* Property management systems
+
+Leadership still cannot reliably answer:
+
+* *Which sites are most at risk right now?*
+* *Where are we leaking money due to execution failure?*
+* *Which vendors are underperforming?*
+
+---
+
+## 3. Product Definition
+
+FPSEI is **not** a CMMS replacement.
+
+It is an **execution intelligence layer** that sits above existing systems to:
+
+* Normalize execution data
+* Detect risk early
+* Prioritize action
+* Quantify financial impact
+
+---
+
+## 4. Target Users
+
+### Primary Buyers
+
+* Head of Facilities
+* Director of Operations
+* CFO / Finance Leadership
+
+### Daily Users
+
+* Facilities managers
+* Regional ops leads
+* Vendor managers
+
+---
+
+## 5. Core Entities (Data Model)
+
+The platform reuses the BeautyOps execution schema with domain‑specific terminology:
+
+| Core Entity      | Description                                        |
+| ---------------- | -------------------------------------------------- |
+| Site             | Physical location (store, building, clinic, hotel) |
+| Inspection       | Site visit, audit, or checklist event              |
+| Work Order       | Maintenance or service task                        |
+| Vendor           | External service provider                          |
+| Execution Signal | Missed task, delay, violation, incomplete work     |
+| Risk Score       | Aggregated execution risk per site                 |
+| SLA              | Contractual performance threshold                  |
+
+---
+
+## 6. Phase‑Based Feature Roadmap
+
+### Phase 0 — Data Credibility (Foundation)
+
+**Goal:** Make execution data trustworthy and queryable
+
+Features:
+
+* Ingest inspection notes (text first)
+* Normalize work order statuses
+* Tag execution signals:
+
+  * Missed inspections
+  * Late work orders
+  * Incomplete tasks
+  * Documentation gaps
+* Confidence scoring on extracted signals
+
+---
+
+### Phase 1 — Site Risk Visibility
+
+**Goal:** Show leadership where execution is breaking down
+
+Features:
+
+* Site‑level execution risk score
+* Ranked list of at‑risk sites
+* Risk trend tracking over time
+* Simple executive snapshot
+
+---
+
+### Phase 2 — Operational Enablement
+
+**Goal:** Improve response speed and accountability
+
+Features:
+
+* AI‑generated site briefs
+* Prioritized action lists
+* Vendor follow‑up summaries
+* Internal task recommendations
+
+---
+
+### Phase 3 — Financial & Compliance Intelligence
+
+**Goal:** Tie execution to cost and risk
+
+Features:
+
+* SLA breach detection
+* Cost leakage estimation
+* Vendor performance benchmarking
+* Audit‑ready reporting
+
+---
+
+## 7. Key Execution Signals (Facilities‑Specific)
+
+* Missed inspections
+* Delayed maintenance
+* Repeat work orders
+* Vendor no‑shows
+* SLA violations
+* Safety compliance gaps
+
+---
+
+## 8. Technology Stack
+
+The platform mirrors the BeautyOps AI stack for maximum reuse:
+
+### Backend
+
+* **Python**
+* **Pydantic AI** (agent orchestration & validation)
+* **FastAPI** (API layer)
+* **PostgreSQL / Supabase** (data + auth)
+
+### AI / Intelligence
+
+* OpenAI models for:
+
+  * Note structuring
+  * Risk scoring
+  * Insight generation
+
+### Frontend
+
+* **React**
+* **Vite**
+* **Shadcn and tailwindcss
+
+### Infrastructure
+
+* Dockerized services
+* Railway (backend)
+* Vercel (frontend)
+
+---
+
+## 9. Monetization Strategy (Early)
+
+* Per‑site pricing
+* Tiered plans:
+
+  * Visibility (risk + reporting)
+  * Intelligence (recommendations + benchmarking)
+* Paid pilots (30–60 days)
+
+---
+
+## 10. MVP Success Criteria
+
+An MVP is successful when the system can:
+
+* Rank sites by execution risk
+* Identify previously unseen failures
+* Quantify cost or risk exposure
+* Support a paid pilot conversion
+
+---
+
+## 11. Strategic Positioning
+
+**Internal positioning:**
+
+> Execution intelligence, not facilities software.
+
+**External positioning:**
+
+> We show operators where execution is leaking money and increasing risk — before it becomes a crisis.
+
+---
+
+## 12. Relationship to BeautyOps AI
+
+This vertical:
+
+* Shares the same architecture
+* Reuses the same AI pipelines
+* Validates horizontal execution intelligence
+
+BeautyOps proves the model in retail.
+
+Facilities expands it into **cost, risk, and compliance‑driven operations**.
+
+---
+
+## 13. Next Steps
+
+1. Clone core execution schema
+2. Rename domain entities
+3. Pilot with 1–2 multi‑site operators
+4. Validate paid pilot demand
+5. Expand vendor intelligence layer
+
+---
+
+## 15. Phase‑0 Engineering Task List (Execution Credibility)
+
+> **Objective:** Establish a trustworthy execution‑intelligence foundation for Facilities & Property Services with minimal surface area.
+
+This phase is about **data credibility**, not dashboards, automations, or integrations.
+
+---
+
+### 15.1 Repository & Environment Setup
+
+* [ ] Create new repository (fork from BeautyOps core if available)
+* [ ] Define environment structure:
+
+  * `/backend`
+  * `/frontend`
+  * `/shared` (schemas, prompts)
+* [ ] Dockerize backend services
+* [ ] Configure Railway project (backend)
+* [ ] Configure Vercel project (frontend)
+
+---
+
+### 15.2 Core Domain Modeling
+
+* [ ] Define Facilities domain entities (Pydantic models):
+
+  * `Site`
+  * `Inspection`
+  * `WorkOrder`
+  * `Vendor`
+  * `ExecutionSignal`
+  * `RiskScore`
+* [ ] Map shared fields reused from BeautyOps (timestamps, confidence, severity)
+* [ ] Create versioned schema contracts
+
+---
+
+### 15.3 Data Ingestion (Text‑First)
+
+* [ ] Inspection note ingestion endpoint
+* [ ] Work order status ingestion endpoint
+* [ ] Manual CSV upload for historical data (pilot support)
+* [ ] Normalize raw inputs into canonical formats
+
+---
+
+### 15.4 Execution Signal Extraction (AI)
+
+* [ ] Prompt design for facilities note structuring
+* [ ] Extract execution signals:
+
+  * Missed inspections
+  * Late work orders
+  * Incomplete tasks
+  * Documentation gaps
+* [ ] Attach confidence score to each signal
+* [ ] Persist signals to database
+
+---
+
+### 15.5 Site‑Level Risk Scoring (Rule‑First)
+
+* [ ] Define initial risk scoring rules:
+
+  * Frequency of failures
+  * Severity weighting
+  * Recency decay
+* [ ] Implement deterministic scoring engine (no ML yet)
+* [ ] Generate site risk score snapshots
+* [ ] Store historical risk trends
+
+---
+
+### 15.6 Query & Insight Layer
+
+* [ ] API endpoints:
+
+  * List at‑risk sites
+  * Site execution history
+  * Signal breakdown by category
+* [ ] Natural‑language query prototype (internal only)
+* [ ] Explainability output (why a site is risky)
+
+---
+
+### 15.7 Minimal Frontend (Internal‑Facing)
+
+* [ ] React + Vite + Chakra UI setup
+* [ ] Authentication via Supabase
+* [ ] Simple views:
+
+  * At‑risk site list
+  * Site detail page
+  * Signal timeline
+* [ ] No dashboards, charts, or filters beyond essentials
+
+---
+
+### 15.8 Validation & Quality Controls
+
+* [ ] Signal confidence thresholds
+* [ ] Manual override / correction support
+* [ ] Logging for extraction failures
+* [ ] Sample data replay for debugging
+
+---
+
+### 15.9 Pilot Readiness
+
+* [ ] Seed demo data for facilities scenarios
+* [ ] Define pilot success metrics:
+
+  * Signal accuracy
+  * Risk ranking usefulness
+  * Time‑to‑insight
+* [ ] Internal README for pilot operators
+
+---
+
+## Phase‑0 Exit Criteria
+
+Phase‑0 is complete when the system can:
+
+* Reliably extract facilities execution signals from raw notes
+* Rank sites by execution risk with explainable logic
+* Surface issues leadership did not previously see
+* Support a paid pilot conversation
+
+---
+
+## Non‑Goals (Phase‑0)
+
+Explicitly out of scope:
+
+* Vision AI
+* Predictive maintenance
+* Workflow automation
+* Third‑party CMMS integrations
+* Executive dashboards
+
+These come later.
